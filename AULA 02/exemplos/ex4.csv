@@ -1,0 +1,6 @@
+Numero    Nome                  FQ1   FQ2
+12345     "Francisco Martins"   12    14
+43212     "Ana Rosa"            NA    12
+43231     "Maria Cristina"      15    NA
+NaN        NONE                 NA    NA
+12334     "André Silva"         --    9

@@ -1,0 +1,31 @@
+data,produto,quantidade,valor_unitario
+2023-01-01,Laptop,3,1200.00
+2023-01-02,Mouse,10,25.00
+2023-01-03,Teclado,5,50.00
+2023-01-04,Monitor,2,300.00
+2023-01-05,Headset,8,75.00
+2023-01-06,Webcam,4,80.00
+2023-01-07,SSD 500GB,6,100.00
+2023-01-08,RAM 16GB,3,150.00
+2023-01-09,Impressora,2,250.00
+2023-01-10,Roteador,5,60.00
+2023-01-11,Tablet,3,400.00
+2023-01-12,Carregador USB,15,20.00
+2023-01-13,Mousepad,20,10.00
+2023-01-14,Cabo HDMI,12,15.00
+2023-01-15,Adaptador USB-C,8,30.00
+2023-01-16,Caixa de Som Bluetooth,4,120.00
+2023-01-17,HD Externo 1TB,3,180.00
+2023-01-18,Suporte para Notebook,6,40.00
+2023-01-19,Teclado Mecânico,2,200.00
+2023-01-20,Câmera de Segurança,3,150.00
+2023-01-21,Fone de Ouvido Bluetooth,5,100.00
+2023-01-22,Pen Drive 64GB,10,30.00
+2023-01-23,Bateria Externa,7,50.00
+2023-01-24,Cabo Ethernet,15,8.00
+2023-01-25,Leitor de Cartão SD,5,25.00
+2023-01-26,Cooler para Notebook,4,35.00
+2023-01-27,Microfone USB,3,70.00
+2023-01-28,Webcam Full HD,2,130.00
+2023-01-29,Hub USB,6,45.00
+2023-01-30,Estabilizador,3,90.00

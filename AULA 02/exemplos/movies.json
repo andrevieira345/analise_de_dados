@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "Inception",
+            "director": "Christopher Nolan",
+            "release_year": 2010,
+            "genre": [
+                "Sci-Fi",
+                "Action"
+            ],
+            "duration": 148,
+            "cast": [
+                {
+                    "actor": "Leonardo DiCaprio",
+                    "role": "Cobb"
+                },
+                {
+                    "actor": "Joseph Gordon-Levitt",
+                    "role": "Arthur"
+                }
+            ],
+            "ratings": {
+                "IMDb": 8.8,
+                "Rotten Tomatoes": 87,
+                "Metacritic": 74
+            },
+            "box_office": {
+                "budget": 160000000,
+                "gross_worldwide": 829895144
+            }
+        },
+        {
+            "id": 2,
+            "title": "The Matrix",
+            "director": "The Wachowskis",
+            "release_year": 1999,
+            "genre": [
+                "Sci-Fi",
+                "Action"
+            ],
+            "duration": 136,
+            "cast": [
+                {
+                    "actor": "Keanu Reeves",
+                    "role": "Neo"
+                },
+                {
+                    "actor": "Laurence Fishburne",
+                    "role": "Morpheus"
+                }
+            ],
+            "ratings": {
+                "IMDb": 8.7,
+                "Rotten Tomatoes": 87,
+                "Metacritic": 73
+            },
+            "box_office": {
+                "budget": 63000000,
+                "gross_worldwide": 463517383
+            }
+        }
+    ]
+}
