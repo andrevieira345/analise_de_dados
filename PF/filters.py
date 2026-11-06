@@ -130,15 +130,61 @@ def next_approach(apr, bodies=None):
 
 def class_summary(ast):
     """Informacao das classes dos asteroides """
-    summary = ast.groupby().agg(
-        n=(),
-        pct_pha=(),
-        median_diameter_km=(),
-        median_moid_au=(),
-        median_i_deg=(),
+    summary = ast.groupby("orbit_class").agg(
+        n=("id", "count"),
+        pct_pha=("is_pha", "mean"), # % ph
+        median_diameter_km=("diameter_km", "median"), # diametro mediano
+        median_moid_au=("moid_au", "median"), # moid mediano
+        median_i_deg=("i_deg", "median"), # inclinacao mediana
     )
-    summary["pct_pha"] =
-    return summary.sort_values( ,ascending= )
+    summary["pct_pha"] =(summary["pct_pha"] * 100).round(1)
+    return summary.sort_values( "n",ascending= False )
+
+
+def class_pha_crosstab(ast, normalize=False):
+    if normalize:
+        return (pd.crosstab(ast["orbit_class"], ast["is_pha"], normalize="index") * 100).round(1)
+    return pd.crosstab(ast["orbit_class"], ast["is_pha"], margins=True)
+
+
+def approaches_pivot(apr, value = "miss_lunar", aggfunc="count"):
+    """ Aproximacoes por decada """
+    df = apr.copy()
+    df["decade"] = df["date"].dt.year // 10 * 10
+    return df.pivot_table(
+        index = "decade",
+        columns = "body",
+        values= value,
+        aggfunc= aggfunc,
+    )
+
+def size_bins(ast):
+    """ Categorizar asteroides conforme o tamanho"""
+    df = ast.copy()
+    df["size_class"] = pd.cut(
+        df["diameter_km"],
+        bins = [0, 0.025, 0.14, 1, float("inf")],
+        labels = ["< 25m", "25m - 140m", "140m - 1km", "> 1 km" ]
+    )
+    summary = df.groupby("size_class", observed = True).agg(
+        n = ("id", "count"),
+        pct_pha = ("is_pha", "mean"),
+    )
+    summary["pct_pha"] = (summary["pct_pha"] * 100).round(1)
+    return summary
+
+def top_n (df, column, n = 10, largest = True, cols= None):
+    """ Retorna as linhas com os maiores ou menores valores de uma coluna."""
+    
+    if largest:
+        result = df.nlargest(n, column)
+    else:
+        result = df.nsmallest(n, column)
+
+    if cols is not None:
+        result = result[cols]
+
+    return result
 
 if __name__ == "__main__":
     pd.options.display.max_columns = 999
@@ -185,4 +231,30 @@ if __name__ == "__main__":
     nxt = next_approach(df_apr, bodies=["Earth"])
     print(len(nxt))
     print(nxt[nxt["id"] == "2099942"])
+    """
+
+    """
+    # ==========================TESTAR def class_summary================
+    resumo = class_summary(df_ast)
+    print(resumo)
+    print("Total:", resumo["n"].sum(), "de", len(df_ast))       # devem ser iguais (ou quase)
+    print("Sem classe:", df_ast["orbit_class"].isna().sum())     # explica a diferença, se houver
+    """
+
+    """
+    # ==========================TESTAR def class_pha_crosstab===========
+    print(class_pha_crosstab(df_ast))
+    print(class_pha_crosstab(df_ast, normalize=True))
+    """
+    """
+    # ==========================TESTAR def approaches_pivot=============
+    print(approaches_pivot(df_apr))                               # n de approaches
+    print(approaches_pivot(df_apr, aggfunc="median").round(1))    # mediana da distancia
+    """
+
+    """
+    # ==========================TESTAR def size_bins====================
+    print(size_bins(df_ast))
+    print("Total:", size_bins(df_ast)["n"].sum())
+    print("Sem diâmetro:", df_ast["diameter_km"].isna().sum())
     """

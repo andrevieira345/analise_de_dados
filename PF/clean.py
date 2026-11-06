@@ -2,8 +2,9 @@ import json
 from pathlib import Path
 import pandas as pd
 
-RAW_DIR = Path("data/raw")
-CLEAN_DIR = Path ("data/filtered")
+
+RAW_DIR = Path(__file__).resolve().parent / 'data' / 'raw'
+CLEAN_DIR = Path(__file__).resolve().parent / 'data' / 'filtered'
 
 
 # Julian Date of the Unix epoch é um formato de data utilizado pelos astronomos.
@@ -106,6 +107,7 @@ def build_asteroids(neos):
  
     # derived columns
     df["diameter_km"] = (df["d_min_km"] + df["d_max_km"]) / 2
+    df.loc[df["diameter_km"] <= 0, "diameter_km"] = float("nan")
     df["is_numbered"] = df["id"].str.startswith("2")
  
     # pages can shift while fetching -> same asteroid may appear twice
