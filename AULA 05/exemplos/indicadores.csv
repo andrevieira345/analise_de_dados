@@ -1,0 +1,13 @@
+região,indicador,2000
+Norte,PIB_real,20000.0
+Norte,inflação,1.500
+Norte,desemprego,7.200
+Centro,PIB_real,15000.0
+Centro,inflação,1.800
+Centro,desemprego,6.300
+Lisboa,PIB_real,30000.0
+Lisboa,inflação,1.700
+Lisboa,desemprego,5.100
+Algarve,PIB_real,10000.0
+Algarve,inflação,2.200
+Algarve,desemprego,8.000

@@ -1,0 +1,6 @@
+[
+  {"Categoria": "Bebidas", "Produto": "Café", "Vendas": 100},
+  {"Categoria": "Bebidas", "Produto": "Chá", "Vendas": 80},
+  {"Categoria": "Alimentos", "Produto": "Arroz", "Vendas": 120},
+  {"Categoria": "Alimentos", "Produto": "Feijão", "Vendas": 90}
+]

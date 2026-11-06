@@ -1,0 +1,13 @@
+região,indicador,2000,2020
+Algarve,PIB_real,10000.0,1000
+Algarve,desemprego,8.0,1001
+Algarve,inflação,2.2,1002
+Centro,PIB_real,15000.0,1003
+Centro,desemprego,6.3,1004
+Centro,inflação,1.8,1005
+Lisboa,PIB_real,30000.0,1006
+Lisboa,desemprego,5.1,1007
+Lisboa,inflação,1.7,1008
+Norte,PIB_real,20000.0,1009
+Norte,desemprego,7.2,1010
+Norte,inflação,1.5,1011
